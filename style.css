@@ -4,8 +4,54 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-#div-container
+html
 {
-    background-color: gray;
+    font-size: 30px;
+    height: 100%;
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    min-height: 100%;
+    align-items: center;
+    background-color: red;
+}
+#calc-container
+{
+
+    background-color: black;
+    height: 20rem;
+    width: 15rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
+    grid-auto-columns: 1fr;
+    padding: 1rem;
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    border-radius: 1rem;
+}
+button
+{
+    background-color: rgb(226, 223, 33);
+    border-radius: 0.75rem;
+    font-size: inherit;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+button:focus
+{
+    outline: none;
+}
+#display
+{
+    grid-column: 1 / 5;
+    background-color: red;
+    width: 100%;
+    height: 100%;
 }
