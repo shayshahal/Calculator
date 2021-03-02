@@ -14,3 +14,13 @@ function divide(x,  y)
 {
     return x / y;
 }
+function operator(x, y, op)
+{
+    const decider = {
+        '+': add, 
+        '-': subtract,
+        '*': multiply,
+        '/': divide
+    }
+    return decider[op](x, y);
+}
