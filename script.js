@@ -14,7 +14,7 @@ function divide(x,  y)
 {
     return x / y;
 }
-function operator(x, y, op)
+function operate(x, y, op)
 {
     const decider = {
         '+': add, 
@@ -24,3 +24,4 @@ function operator(x, y, op)
     }
     return decider[op](x, y);
 }
+console.log(operate(5, 6, "+"));
