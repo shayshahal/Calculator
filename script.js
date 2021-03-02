@@ -24,4 +24,3 @@ function operate(x, y, op)
     }
     return decider[op](x, y);
 }
-console.log(operate(5, 6, "+"));
