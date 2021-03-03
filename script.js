@@ -27,7 +27,14 @@ function operate(x, op, y)
 }
 function opDisplay(e)
 {
-
+    let regex = /[-+×÷]/;
+    let str = display.innerText;
+    let exp = e.target.innerText;
+    if(regex.test(exp))
+    {
+        if(regex.test(str.slice(-1))){return;}
+        if(str.length === 0){return;}
+    }
     display.innerText = display.innerText.concat(e.target.innerText);
 }
 function clearDisplay()
@@ -70,7 +77,7 @@ function giveResult()
 }
 const display = document.getElementById("display");
 
-const operators = document.querySelectorAll('button[class="op"]');
+const operators = document.querySelectorAll('button[class="exp"]');
 operators.forEach(op => op.addEventListener("click", opDisplay));
 
 const clear = document.getElementById("clear");
