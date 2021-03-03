@@ -47,6 +47,7 @@ button
     box-shadow: 3px 3px 1px 1px rgb(32, 32, 32);
     cursor: pointer;
     transition: transform 0.05s ease;
+    text-align: center;
 } 
 button:active
 {
@@ -59,7 +60,7 @@ button:focus
 #display
 {
     grid-column: 1 / 5;
-    background-color: #c90617;
+    background-color: #960410;
     border: 8px solid black;
     border-radius: 0.5rem;
     display: flex;

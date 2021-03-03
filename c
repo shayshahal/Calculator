@@ -1,0 +1,53 @@
+[33mcommit ba423f4c6ffb984200e840a5e69ef45d59c82b76[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: shayshahal <shay840@gmail.com>
+Date:   Tue Mar 2 18:20:01 2021 +0200
+
+    add display functionality
+
+[33mcommit fdf5613f0a858126f4e856d975777f38b4aa4db1[m
+Author: shayshahal <shay840@gmail.com>
+Date:   Tue Mar 2 18:07:46 2021 +0200
+
+    update grid design
+
+[33mcommit a7f0bb5b357521c1c6aa8c36d185f3b03e7191ba[m
+Author: shayshahal <shay840@gmail.com>
+Date:   Tue Mar 2 17:27:33 2021 +0200
+
+    update grid to basic look
+
+[33mcommit 9e409faa8cd51cca81577b6f5914d384b182d178[m
+Author: shayshahal <shay840@gmail.com>
+Date:   Tue Mar 2 16:28:29 2021 +0200
+
+    add basic html for calc
+
+[33mcommit d2a03a73b6df5a20fd37d1571fd7f491e59bea13[m
+Author: shayshahal <shay840@gmail.com>
+Date:   Tue Mar 2 15:19:36 2021 +0200
+
+    add operator function
+
+[33mcommit 07c65636117169e8f8821aea87c375c2007308ca[m
+Author: shayshahal <shay840@gmail.com>
+Date:   Tue Mar 2 15:17:28 2021 +0200
+
+    Add add, subtract, multiply and divide
+
+[33mcommit 09f6c9c0058daabe6384e7c6171ea8d33531309a[m
+Author: shayshahal <shay840@gmail.com>
+Date:   Tue Mar 2 15:12:01 2021 +0200
+
+    add style.css and script.js
+
+[33mcommit 5cd87886908205c9fd9eb6ccaad28801a1be2648[m
+Author: shayshahal <shay840@gmail.com>
+Date:   Tue Mar 2 15:09:47 2021 +0200
+
+    add README.md and index.html
+
+[33mcommit edee24b1812fd86cd73c43c2fea906210a973092[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: shayshahal <56202643+shayshahal@users.noreply.github.com>
+Date:   Tue Mar 2 15:01:55 2021 +0200
+
+    Initial commit
