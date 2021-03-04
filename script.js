@@ -27,20 +27,29 @@ function operate(x, op, y)
 function opDisplay(e)
 {
     let regex = /[-+×\\.÷]/;
-    let str = display.innerText;
-    let exp = e.target.innerText;
+    let str;
+    (ansDisplay.innerHTML === '&nbsp;') 
+    ? 
+        str = expDisplay.textContent 
+    : 
+        str = ansDisplay.textContent;
+    let exp = e.target.textContent;
     if(regex.test(exp))
     {
         if(regex.test(str.slice(-1))){return;}
-        if(str.length === 0){return;}
+        if(str.length === 0){return;}   
         if(exp == ".")
-            if(/[0-9]+[\\.][0-9]+$/.test(str)){console.log("bla"); return;}
+        {
+            if(/[0-9]+[\\.][0-9]+$/.test(str)){return;}
+        }
     }
-    display.innerText = display.innerText.concat(e.target.innerText);
+        expDisplay.textContent = str.concat(e.target.textContent);
+        ansDisplay.innerHTML = "&nbsp;";
 }
 function clearDisplay()
 {
-    display.innerText = "";
+    expDisplay.innerHTML = '&nbsp;';
+    ansDisplay.innerHTML = "&nbsp;";
 }
 function convertMultiplyDivide(arr)
 {
@@ -75,11 +84,11 @@ function convertToMath(str)
 }
 function giveResult()
 {
-    let str = display.innerText;
-    display.innerText = convertToMath(str);
+    let str = expDisplay.innerText;
+    ansDisplay.innerText = convertToMath(str);
 }
-const display = document.getElementById("display");
-
+const expDisplay = document.getElementById("exp-display");
+const ansDisplay = document.getElementById("ans-display");
 const operators = document.querySelectorAll('button[class="exp"]');
 operators.forEach(op => op.addEventListener("click", opDisplay));
 
