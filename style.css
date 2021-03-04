@@ -17,7 +17,7 @@ body
     justify-content: center;
     min-height: 100%;
     align-items: center;
-    background-color: #34A4E6;
+    background-color: #c7dfec;
 }
 #calc-container
 {
@@ -87,7 +87,7 @@ button:focus
 {
     font-size: 0.8rem;
     font-weight: 400;
-
+    color: #404041;
 }
 #ans-display
 {
@@ -127,8 +127,12 @@ button:focus
 }
 #equal
 {
-    background-color: #222222;
+    background-color: #333333;
     color: white;
+}
+#equal:hover
+{
+    background-color: #222222;
 }
 #delete:hover
 {
