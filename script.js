@@ -1,11 +1,3 @@
-function add(x, y)
-{
-    return +x + +y;
-}
-function subtract(x, y)
-{
-    return x - y;
-}
 function multiply(x, y)
 {
     return x * y;
@@ -14,28 +6,21 @@ function divide(x,  y)
 {
     return x / y;
 }
-function modolu(x, y)
-{
-    return x % y;
-}
 function operate(x, op, y)
 {
+    console.log(x, op, y);
     const decider = {
-        '+': add, 
-        '-': subtract,
         '×': multiply,
-        '÷': divide,
-        '%': modolu
+        '÷': divide
     }
     return decider[op](x, y);
 }
 function opDisplay(e)
 {
-    
-    let opRegex = /[-+%×\\.÷]/;
+    let opRegex = /[-+×\\.÷]/;
     let numRegex = /[0-9]/
     let str;
-    (ansDisplay.innerHTML === '&nbsp;' || opRegex.test(expDisplay.textContent.slice(-1))) 
+    (ansDisplay.textContent === "" || opRegex.test(expDisplay.textContent.slice(-1))) 
     ? 
         str = expDisplay.textContent 
     : 
@@ -43,30 +28,30 @@ function opDisplay(e)
     let exp = e.target.textContent;
     if(opRegex.test(exp))
     {
-        if(opRegex.test(str. slice(-1))){return;}
+        if(opRegex.test(str.slice(-1))){return;}
         if(str.length === 0){return;}   
         if(exp == ".")
         {
             if(/[0-9]+[\\.][0-9]+$/.test(str)){return;}
         }
     }
-    else if(ansDisplay.innerHTML !== '&nbsp;')
+    else if(ansDisplay.textContent !== "")
     {
         if(numRegex.test(str.slice(-1)))
         {
-            str = '';
+            str = "";
         }
     }
     expDisplay.textContent = str.concat(exp);
-    ansDisplay.innerHTML = "&nbsp;";
+    ansDisplay.textContent =  "";
 }
 function clearDisplay()
 {
-    expDisplay.innerHTML = '&nbsp;';
-    ansDisplay.innerHTML = "&nbsp;";
+    expDisplay.textContent = "";
+    ansDisplay.textContent = "";
 }
 function clearLast()
-{
+{   
     expDisplay.textContent = expDisplay.textContent.slice(0, -1);
 }
 function convertMultiplyDivide(arr)
@@ -82,14 +67,12 @@ function convertMultiplyDivide(arr)
 function convertToMath(str)
 {
     let nums = str.split(/[+]|(?=[-][0-9]+)/g);
-    console.log(nums);
     function mapper(x)
     {
-        let regex = /[×÷%]|([0-9]+[.]?[0-9]?)/g
+        let regex = /[×÷]|([0-9]+[.]?[0-9]?)/g
         if(x.match(regex).length >= 3)
         {
-            console.log(nums);
-            let arr = x.split(/(?=[×÷%])|(?<=[×÷%])/g);
+            let arr = x.split(/(?=[×÷])|(?<=[×÷])/g);
             return convertMultiplyDivide(arr);
         }
         else
@@ -102,17 +85,23 @@ function convertToMath(str)
 }
 function giveResult()
 {
-    let str = expDisplay.innerText;
-    ansDisplay.innerText = convertToMath(str);
+    let str = expDisplay.textContent;
+    let opRegex = /[-+×\\.÷]/;
+    if(!opRegex.test(str.slice(-1)))
+    {
+        let res = convertToMath(str);
+        ansDisplay.textContent = res;
+    }
 }
 function pressKey(e)
 {
     const key = document.querySelector(`button[data-key="${e.keyCode}"]`);
+    console.log(key);
     key.click();
 }
 const expDisplay = document.getElementById("exp-display");
 const ansDisplay = document.getElementById("ans-display");
-const operators = document.querySelectorAll('button[class="exp"]');
+const operators = document.querySelectorAll('.exp');
 operators.forEach(op => op.addEventListener("click", opDisplay));
 
 const clear = document.getElementById("clear");
@@ -124,4 +113,4 @@ dlt.addEventListener("click", clearLast);
 const equal = document.getElementById("equal");
 equal.addEventListener("click", giveResult);
 
-window.addEventListener('keydown', pressKey)
+window.addEventListener('keydown', pressKey);
