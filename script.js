@@ -35,7 +35,7 @@ function opDisplay(e)
     let opRegex = /[-+%×\\.÷]/;
     let numRegex = /[0-9]/
     let str;
-    (ansDisplay.innerHTML === '&nbsp;') 
+    (ansDisplay.innerHTML === '&nbsp;' || opRegex.test(expDisplay.textContent.slice(-1))) 
     ? 
         str = expDisplay.textContent 
     : 
@@ -43,7 +43,7 @@ function opDisplay(e)
     let exp = e.target.textContent;
     if(opRegex.test(exp))
     {
-        if(opRegex.test(str.slice(-1))){return;}
+        if(opRegex.test(str. slice(-1))){return;}
         if(str.length === 0){return;}   
         if(exp == ".")
         {
@@ -64,6 +64,10 @@ function clearDisplay()
 {
     expDisplay.innerHTML = '&nbsp;';
     ansDisplay.innerHTML = "&nbsp;";
+}
+function clearLast()
+{
+    expDisplay.textContent = expDisplay.textContent.slice(0, -1);
 }
 function convertMultiplyDivide(arr)
 {
@@ -103,7 +107,6 @@ function giveResult()
 }
 function pressKey(e)
 {
-    console.log("bla");
     const key = document.querySelector(`button[data-key="${e.keyCode}"]`);
     key.click();
 }
@@ -114,6 +117,9 @@ operators.forEach(op => op.addEventListener("click", opDisplay));
 
 const clear = document.getElementById("clear");
 clear.addEventListener("click", clearDisplay);
+
+const dlt = document.getElementById("delete");
+dlt.addEventListener("click", clearLast);
 
 const equal = document.getElementById("equal");
 equal.addEventListener("click", giveResult);
