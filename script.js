@@ -16,7 +16,6 @@ function divide(x,  y)
 }
 function operate(x, op, y)
 {
-    console.log(x, op, y);
     const decider = {
         '+': add, 
         '-': subtract,
@@ -27,19 +26,21 @@ function operate(x, op, y)
 }
 function opDisplay(e)
 {
-    let regex = /[-+×÷]/;
+    let regex = /[-+×\\.÷]/;
     let str = display.innerText;
     let exp = e.target.innerText;
     if(regex.test(exp))
     {
         if(regex.test(str.slice(-1))){return;}
         if(str.length === 0){return;}
+        if(exp == ".")
+            if(/[0-9]+[\\.][0-9]+$/.test(str)){console.log("bla"); return;}
     }
     display.innerText = display.innerText.concat(e.target.innerText);
 }
 function clearDisplay()
 {
-    display.innerText =     "";
+    display.innerText = "";
 }
 function convertMultiplyDivide(arr)
 {
@@ -54,12 +55,14 @@ function convertMultiplyDivide(arr)
 function convertToMath(str)
 {
     let nums = str.split(/[+]|(?=[-][0-9]+)/g);
+    console.log(nums);
     function mapper(x)
     {
-        if(x.length >= 3)
+        let regex = /[×÷]|([0-9]+[.]?[0-9]?)/g
+        if(x.match(regex).length >= 3)
         {
+            console.log(nums);
             let arr = x.split(/(?=[×÷])|(?<=[×÷])/g);
-            console.log(arr);
             return convertMultiplyDivide(arr);
         }
         else
