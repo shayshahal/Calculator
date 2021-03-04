@@ -104,7 +104,7 @@ function giveResult()
 function pressKey(e)
 {
     console.log("bla");
-    const key = document.querySelector(`button[data-key=${e.keyCode}]`);
+    const key = document.querySelector(`button[data-key="${e.keyCode}"]`);
     key.click();
 }
 const expDisplay = document.getElementById("exp-display");
