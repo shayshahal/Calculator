@@ -20,7 +20,7 @@ function opDisplay(e)
     let opRegex = /[-+×\\.÷]/;
     let numRegex = /[0-9]/
     let str;
-    (ansDisplay.textContent === "" || opRegex.test(expDisplay.textContent.slice(-1))) 
+    (ansDisplay.textContent == "" || opRegex.test(expDisplay.textContent.slice(-1))) 
     ? 
         str = expDisplay.textContent 
     : 
@@ -49,6 +49,7 @@ function clearDisplay()
 {
     expDisplay.textContent = "";
     ansDisplay.textContent = "";
+    console.log("bla");
 }
 function clearLast()
 {   
@@ -81,23 +82,29 @@ function convertToMath(str)
         }
     }
     let res = nums.map(mapper);
+    console.log(res);
     return res.reduce((acc, x) => +acc + +x);
 }
 function giveResult()
 {
     let str = expDisplay.textContent;
     let opRegex = /[-+×\\.÷]/;
-    if(!opRegex.test(str.slice(-1)))
+    if(!opRegex.test(str.slice(-1)) && str.length !== 0)
     {
         let res = convertToMath(str);
+        console.log(res);
         ansDisplay.textContent = res;
+        console.log(ansDisplay.textContent);
     }
 }
 function pressKey(e)
 {
+    if (e.keyCode === 13) {
+        e.preventDefault();
+    }
     const key = document.querySelector(`button[data-key="${e.keyCode}"]`);
-    console.log(key);
-    key.click();
+    if(key)
+        key.click();
 }
 const expDisplay = document.getElementById("exp-display");
 const ansDisplay = document.getElementById("ans-display");
