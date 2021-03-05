@@ -37,7 +37,7 @@ function opDisplay(e)
     }
     else if(ansDisplay.textContent !== "")
     {
-        if(numRegex.test(str.slice(-1)))
+        if(numRegex.test(str.slice(-1)) || ansDisplay.textContent === "ERROR")
         {
             str = "";
         }
@@ -49,7 +49,6 @@ function clearDisplay()
 {
     expDisplay.textContent = "";
     ansDisplay.textContent = "";
-    console.log("bla");
 }
 function clearLast()
 {   
@@ -63,6 +62,8 @@ function convertMultiplyDivide(arr)
         res = operate(arr.shift(), arr.shift(), arr.shift());
         arr.unshift(res);
     }
+    if(res % 1 !== 0)
+        res = +res.toFixed(10);
     return res;
 }
 function convertToMath(str)
@@ -89,12 +90,16 @@ function giveResult()
 {
     let str = expDisplay.textContent;
     let opRegex = /[-+×\\.÷]/;
+    let zeroDivideRegex = /[÷][0]+/;
+    if(zeroDivideRegex.test(str))
+    {
+        ansDisplay.textContent = "ERROR";
+        return;
+    }
     if(!opRegex.test(str.slice(-1)) && str.length !== 0)
     {
         let res = convertToMath(str);
-        console.log(res);
         ansDisplay.textContent = res;
-        console.log(ansDisplay.textContent);
     }
 }
 function pressKey(e)
@@ -104,7 +109,9 @@ function pressKey(e)
     }
     const key = document.querySelector(`button[data-key="${e.keyCode}"]`);
     if(key)
+    {
         key.click();
+    }
 }
 const expDisplay = document.getElementById("exp-display");
 const ansDisplay = document.getElementById("ans-display");
