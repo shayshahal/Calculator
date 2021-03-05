@@ -6,30 +6,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div id="calc-container">
-            <div id="display">
-                <div id="exp-display"></div>
-                <div id="ans-display"></div>
+        <main>
+            <div id="calc-container">
+                <div id="display">
+                    <div id="exp-display"></div>
+                    <div id="ans-display"></div>
+                </div>
+                <button data-key="46" id="clear">AC</button>
+                <button data-key="8" id="delete">C</button>
+                <button data-key="107" class="exp op">+</button>
+                <button data-key="97" class="exp">1</button>
+                <button data-key="98" class="exp">2</button>
+                <button data-key="99" class="exp">3</button>
+                <button data-key="109" class="exp op">-</button>
+                <button data-key="100" class="exp">4</button>
+                <button data-key="101" class="exp">5</button>
+                <button data-key="102" class="exp">6</button>
+                <button data-key="106" class="exp op">×</button>
+                <button data-key="103" class="exp">7</button>
+                <button data-key="104" class="exp">8</button>
+                <button data-key="105" class="exp">9</button>
+                <button data-key="111" class="exp op">÷</button>
+                <button data-key="110" class="exp">.</button>
+                <button data-key="96" class="exp">0</button>
+                <button data-key="13" id="equal" >=</button>
             </div>
-            <button data-key="46" id="clear">AC</button>
-            <button data-key="8" id="delete">C</button>
-            <button data-key="107" class="exp op">+</button>
-            <button data-key="97" class="exp">1</button>
-            <button data-key="98" class="exp">2</button>
-            <button data-key="99" class="exp">3</button>
-            <button data-key="109" class="exp op">-</button>
-            <button data-key="100" class="exp">4</button>
-            <button data-key="101" class="exp">5</button>
-            <button data-key="102" class="exp">6</button>
-            <button data-key="106" class="exp op">×</button>
-            <button data-key="103" class="exp">7</button>
-            <button data-key="104" class="exp">8</button>
-            <button data-key="105" class="exp">9</button>
-            <button data-key="111" class="exp op">÷</button>
-            <button data-key="110" class="exp">.</button>
-            <button data-key="96" class="exp">0</button>
-            <button data-key="13" id="equal" >=</button>
-        </div>
+        </main>
+        <footer>
+            <span>© Shay Shahal</span>
+            <a href="https://github.com/shayshahal/calculator" target="_blank">
+                <img src="assets/name.png" alt="github link"/>
+            </a>
+        </footer>
         <script src="script.js"></script>
     </body>
 </html>
