@@ -17,7 +17,7 @@ function operate(x, op, y)
 }
 function opDisplay(e)
 {
-    let opRegex = /[-+×\\.÷]|(ERROR)/;
+    let opRegex = /[-+×\\.÷]/;
     let numRegex = /[0-9]/
     let str;
     (ansDisplay.textContent == "" || opRegex.test(expDisplay.textContent.slice(-1))) 
