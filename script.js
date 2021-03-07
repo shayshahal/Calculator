@@ -17,7 +17,7 @@ function operate(x, op, y)
 }
 function opDisplay(e)
 {
-    let opRegex = /[-+×\\.÷]/;
+    let opRegex = /[-+×\\.÷]|(ERROR)/;
     let numRegex = /[0-9]/
     let str;
     (ansDisplay.textContent == "" || opRegex.test(expDisplay.textContent.slice(-1))) 
@@ -28,6 +28,7 @@ function opDisplay(e)
     let exp = e.target.textContent;
     if(opRegex.test(exp))
     {
+        if(ansDisplay.textContent === "ERROR"){return;}
         if(opRegex.test(str.slice(-1))){return;}
         if(str.length === 0){return;}   
         if(exp == ".")
@@ -113,6 +114,7 @@ function pressKey(e)
         key.click();
     }
 }
+
 const expDisplay = document.getElementById("exp-display");
 const ansDisplay = document.getElementById("ans-display");
 const operators = document.querySelectorAll('.exp');
